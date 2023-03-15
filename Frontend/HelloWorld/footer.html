@@ -1,0 +1,60 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  //Changing blog grid view dates order.
+  $(document).ready(function() {
+ 	$('time.blog-date').each(function(){
+       	let dateArray = this.innerText.split("/");
+       	let dateCompiled = dateArray[1] + "/" + dateArray[0] + "/" + dateArray[2];
+      	console.log(dateCompiled);
+       	this.innerText = dateCompiled;
+  	});
+    
+  //Changing blog detailed view dates.
+    $('time.blog-meta-item--date').each(function(){
+    	if (this.innerText.split(" ")[0] === 'Jan'){
+          this.innerText = this.innerText.split(" ")[1] + ' Januar';
+        } else if (this.innerText.split(" ")[0] === 'Feb') {
+          this.innerText = this.innerText.split(" ")[1] + ' Februar';
+        } else if (this.innerText.split(" ")[0] === 'Mar') {
+          this.innerText = this.innerText.split(" ")[1] + ' Marts';
+        } else if (this.innerText.split(" ")[0] === 'Apr') {
+          this.innerText = this.innerText.split(" ")[1] + ' April';
+        } else if (this.innerText.split(" ")[0] === 'May') {
+          this.innerText = this.innerText.split(" ")[1] + ' Maj';
+        } else if (this.innerText.split(" ")[0] === 'June') {
+          this.innerText = this.innerText.split(" ")[1] + ' Juni';
+        } else if (this.innerText.split(" ")[0] === 'July') {
+          this.innerText = this.innerText.split(" ")[1] + ' Juli';
+        } else if (this.innerText.split(" ")[0] === 'Aug') {
+          this.innerText = this.innerText.split(" ")[1] + ' August';
+        } else if (this.innerText.split(" ")[0] === 'Sept') {
+          this.innerText = this.innerText.split(" ")[1] + ' September';
+        } else if (this.innerText.split(" ")[0] === 'Oct') {
+          this.innerText = this.innerText.split(" ")[1] + ' Oktober';
+        } else if (this.innerText.split(" ")[0] === 'Nov') {
+          this.innerText = this.innerText.split(" ")[1] + ' November';
+        } else if (this.innerText.split(" ")[0] === 'Dec') {
+          this.innerText = this.innerText.split(" ")[1] + ' December';
+        }
+    });
+  });
+  
+</script>
+
+
+
+
+
+<script>
+  (function(){
+window.addEventListener('load', function(){
+var writtenBy = document.querySelector('.blog-meta-item--author')
+writtenBy.childNodes[0].textContent = writtenBy.childNodes[0].textContent.replace('Written By',"Skrevet af:")
+})
+})();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$('.blog-more-link:contains("Read More")').text('Læs mere'); 
+</script>
