@@ -18,7 +18,7 @@
         "style": "bold yellow",
         "symbol": "☁️  "
       },
-      "allOf": [
+      "allOf": [sss
         {
           "$ref": "#/definitions/AwsConfig"
         }
