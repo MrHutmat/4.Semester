@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "Dracula done",
+    "Menu_Background_Color": "rgb(40,42,54)",
+    "Menu_Foreground_Color": "rgb(248,248,242)",
+    "Menu_Border_Color": "rgb(68,71,90)",
+    "Menu_Border_Width": "1",
+    "Menu_Border_Radius": "14",
+    "Menu_Font_Size": "11",
+    "Menu_Separator_Color": "rgb(189,147,249)",
+    "Item_Hover_Background_Color": "rgb(68,71,90)",
+    "Item_Hover_Foreground_Color": "rgb(248,248,242)",
+    "Item_Active_Background_Color": "rgb(68,71,90)",
+    "Item_Active_Foreground_Color": "rgb(248,248,242)"
+  }
+]
