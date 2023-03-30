@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BirthdayCardCompose</string>
+    <string name="happy_birthday_text">Tillykke med fødselsdagen</string>
+    <string name="signature_text">- fra Mathias</string>
+</resources>
