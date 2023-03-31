@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BusinessCardApp</string>
+    <string name="linkedin_handle">\Mathias-Helsengren-1231b9139</string>
+    <string name="email">mathias@helsengren.com</string>
+    <string name="phone_number">50430371</string>
+    <string name="title">Datamatikker studerende - UCL</string>
+    <string name="full_name">Mathias Helsengren</string>
+</resources>
