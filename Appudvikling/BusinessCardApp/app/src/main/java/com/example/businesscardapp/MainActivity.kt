@@ -4,28 +4,25 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AlternateEmail
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.filled.Smartphone
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.sp
 import com.example.businesscardapp.ui.theme.BusinessCardAppTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +42,11 @@ class MainActivity : ComponentActivity() {
 fun ComposableBusinessCardApp(
 
 ) {
-    Column() {
+    Column(
+        Modifier.background(color = Color(0xFF4C5270)).fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceAround,
+    ) {
         InformationCard(
             fullName = stringResource(R.string.full_name),
             title = stringResource(R.string.title)
@@ -66,20 +67,24 @@ fun InformationCard(
     modifier: Modifier = Modifier
 
 ) {
-    Column() {
-        val image = painterResource(R.drawable.logo)
+    Column(
+        //verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        val image = painterResource(R.drawable.logonyt)
         Image(
             painter = image,
             contentDescription = null,
             modifier = Modifier
-                .clip(CircleShape)
-                .size(72.dp)
+                .size(250.dp)
             )
         Text(
-            text = fullName
+            text = fullName,
+            fontSize = 35.sp
         )
         Text(
-            text = title
+            text = title,
+            fontWeight = FontWeight.Bold,
         )
     }
 
@@ -92,34 +97,41 @@ fun ContactInfo(
     linkedInHandle: String,
     modifier: Modifier = Modifier
 ) {
-    Column() {
-    }
-    Row() {
-        Icon(
-            imageVector = Icons.Default.Smartphone,
-            contentDescription = null,
-        )
-        Text(
-            text = phoneNumber
-        )
-    }
-    Row() {
-        Icon(
-            imageVector = Icons.Default.Email,
-            contentDescription = null,
-        )
-        Text(
-            text = email
-        )
-    }
-    Row() {
-        Icon(
-            imageVector = Icons.Default.AlternateEmail,
-            contentDescription = null,
-        )
-        Text(
-            text = linkedInHandle
-        )
+    Column(
+        Modifier.padding(vertical = 16.dp)
+    ) {
+
+        Divider(color = Color.White, thickness = 1.dp)
+
+        Row() {
+            Icon(
+                imageVector = Icons.Default.Smartphone,
+                contentDescription = null,
+            )
+            Text(
+                text = phoneNumber
+            )
+        }
+        Divider(color = Color.White, thickness = 1.dp)
+        Row() {
+            Icon(
+                imageVector = Icons.Default.Email,
+                contentDescription = null,
+            )
+            Text(
+                text = email
+            )
+        }
+        Divider(color = Color.White, thickness = 1.dp)
+        Row() {
+            Icon(
+                imageVector = Icons.Default.AlternateEmail,
+                contentDescription = null,
+            )
+            Text(
+                text = linkedInHandle
+            )
+        }
     }
 }
 
