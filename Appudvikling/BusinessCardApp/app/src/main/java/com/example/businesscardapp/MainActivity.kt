@@ -98,10 +98,9 @@ fun ContactInfo(
     modifier: Modifier = Modifier
 ) {
     Column(
-        Modifier.padding(vertical = 16.dp)
     ) {
 
-        Divider(color = Color.White, thickness = 1.dp)
+        Divider(color = Color.White, thickness = 2.dp)
 
         Row() {
             Icon(
@@ -112,7 +111,8 @@ fun ContactInfo(
                 text = phoneNumber
             )
         }
-        Divider(color = Color.White, thickness = 1.dp)
+        Divider(
+            color = Color.White, thickness = 2.dp)
         Row() {
             Icon(
                 imageVector = Icons.Default.Email,
@@ -122,7 +122,7 @@ fun ContactInfo(
                 text = email
             )
         }
-        Divider(color = Color.White, thickness = 1.dp)
+        Divider(color = Color.White, thickness = 2.dp)
         Row() {
             Icon(
                 imageVector = Icons.Default.AlternateEmail,
