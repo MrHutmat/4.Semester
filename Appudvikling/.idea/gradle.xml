@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/AndroidProjektCompose" />
+        <option name="gradleJvm" value="jbr-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/AndroidProjektCompose" />
+            <option value="$PROJECT_DIR$/AndroidProjektCompose/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/BirthdayCardCompose" />
+        <option name="gradleJvm" value="jbr-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/BirthdayCardCompose" />
+            <option value="$PROJECT_DIR$/BirthdayCardCompose/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/BusinessCardApp" />
+        <option name="gradleJvm" value="jbr-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/BusinessCardApp" />
+            <option value="$PROJECT_DIR$/BusinessCardApp/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ComposeQuadrants" />
+        <option name="gradleJvm" value="jbr-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/ComposeQuadrants" />
+            <option value="$PROJECT_DIR$/ComposeQuadrants/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/FirstApp" />
+        <option name="gradleJvm" value="jbr-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/FirstApp" />
+            <option value="$PROJECT_DIR$/FirstApp/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/HasmarksPerle" />
+        <option name="gradleJvm" value="jbr-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/HasmarksPerle" />
+            <option value="$PROJECT_DIR$/HasmarksPerle/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/HasmarksPerleMedCompose" />
+        <option name="gradleJvm" value="jbr-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/HasmarksPerleMedCompose" />
+            <option value="$PROJECT_DIR$/HasmarksPerleMedCompose/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/TaskManager" />
+        <option name="gradleJvm" value="jbr-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/TaskManager" />
+            <option value="$PROJECT_DIR$/TaskManager/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

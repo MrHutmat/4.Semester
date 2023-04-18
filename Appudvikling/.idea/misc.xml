@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/AndroidProjektCompose" />
+    <file type="web" url="file://$PROJECT_DIR$/BirthdayCardCompose" />
+    <file type="web" url="file://$PROJECT_DIR$/BusinessCardApp" />
+    <file type="web" url="file://$PROJECT_DIR$/ComposeQuadrants" />
+    <file type="web" url="file://$PROJECT_DIR$/FirstApp" />
+    <file type="web" url="file://$PROJECT_DIR$/HasmarksPerle" />
+    <file type="web" url="file://$PROJECT_DIR$/HasmarksPerleMedCompose" />
+    <file type="web" url="file://$PROJECT_DIR$/TaskManager" />
+  </component>
+  <component name="ProjectRootManager">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
