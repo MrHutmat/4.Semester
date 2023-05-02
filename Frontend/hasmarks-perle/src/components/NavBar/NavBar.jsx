@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import UserMenu from "./UserMenu";
+import UserItems from "./UserItems";
 
 const NavBar = () => {
-  const [nav, setNav] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const links = [
     {
@@ -21,45 +22,43 @@ const NavBar = () => {
   ];
 
   return (
-    <div className="fixed shadow-md w-full top-0 left-0 bg-neutral">
-      <div className="md:flex items-center justify-between py-4 md:px-10 px-7">
-        <div className="btn btn-ghost text-2xl navbar-start">
-          Hasmarks Perle
-        </div>
+    <div className="navbar fixed z-50 shadow-md bg-neutral">
+      <div className="flex-1 px-2">
+        <div className="btn btn-ghost text-2xl">Hasmarks Perle</div>
 
-        <ul className="hidden md:flex">
-          {links.map(({ id, link }) => (
-            <li
-              key={id}
-              className="px-4 cursor-pointer capitalize font-medium text-black hover:scale-105 hover:underline transition duration-200"
-            >
-              {link}
-            </li>
-          ))}
-        </ul>
-        <UserMenu />
-
-        <div className="dropdown">
-          <div
-            onClick={() => setNav(!nav)}
-            tabIndex={0}
-            className="btn btn-ghost text-3xl cursor-pointer md:hidden"
-          >
-            {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-          </div>
-
-          <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-          >
+        <div className="flex flex-1 px-2 justify-end">
+          <ul className="hidden md:flex">
             {links.map(({ id, link }) => (
-              <li key={id} className="">
+              <li
+                key={id}
+                className="px-4 cursor-pointer capitalize font-medium hover:underline hover:text-secondary transition duration-200"
+              >
                 {link}
               </li>
             ))}
+            <UserMenu />
           </ul>
-        </div>
+          <div className="dropdown dropdown-end">
+            <div
+              onClick={() => setIsOpen((prev) => !prev)}
+              tabIndex={0}
+              className="btn btn-ghost text-3xl md:hidden"
+            >
+              {isOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
+            </div>
 
+            {isOpen && (
+              <ul className="menu dropdown-content capitalize mt-4 p-2 shadow bg-neutral rounded-box w-52">
+                {links.map(({ id, link }) => (
+                  <li key={id}>
+                    <a>{link}</a>
+                  </li>
+                ))}
+                <UserItems />
+              </ul>
+            )}
+          </div>
+        </div>
         {/* <ul
           className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-neutral md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
             nav ? "top-20" : "top-[-490px]"

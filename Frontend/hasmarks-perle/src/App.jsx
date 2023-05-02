@@ -9,6 +9,7 @@ const App = () => {
     <>
       <NavBar />
       <Login />
+      <Login />
     </>
   );
 };
