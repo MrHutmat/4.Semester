@@ -1,15 +1,18 @@
 import React from "react";
 import NavBar from "./components/NavBar/NavBar";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 const App = () => {
   return (
     <>
       <NavBar />
-      <Register />
-      <Login />
-      <Login />
+      <div>
+        <Home />
+        <Register />
+        <Login />
+        <Login />
+      </div>
     </>
   );
 };
