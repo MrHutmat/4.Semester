@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import com.example.businesscardapp.ui.theme.BusinessCardAppTheme
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +31,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BusinessCardAppTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+                Surface(color = MaterialTheme.colors.background) {
                     ComposableBusinessCardApp()
                 }
             }
@@ -42,21 +43,26 @@ class MainActivity : ComponentActivity() {
 fun ComposableBusinessCardApp(
 
 ) {
-    Column(
-        Modifier.background(color = Color(0xFF4C5270)).fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceAround,
-    ) {
-        InformationCard(
-            fullName = stringResource(R.string.full_name),
-            title = stringResource(R.string.title)
-        )
-        ContactInfo(
-            phoneNumber = stringResource(R.string.phone_number),
-            email = stringResource(R.string.email),
-            linkedInHandle = stringResource(R.string.linkedin_handle)
-        )
+    Surface(color = Color(0xFF4C5270), modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier.fillMaxSize()
+                .padding(16.dp),
+            // horizontalAlignment = Alignment.CenterHorizontally,
+           // verticalArrangement = Arrangement.SpaceAround,
+        ) {
+            InformationCard(
+                fullName = stringResource(R.string.full_name),
+                title = stringResource(R.string.title),
+                modifier = Modifier.weight(1f),
+            )
+            ContactInfo(
+                phoneNumber = stringResource(R.string.phone_number),
+                email = stringResource(R.string.email),
+                linkedInHandle = stringResource(R.string.linkedin_handle)
+            )
 
+
+        }
     }
 }
 
@@ -68,7 +74,8 @@ fun InformationCard(
 
 ) {
     Column(
-        //verticalArrangement = Arrangement.Center,
+        modifier = modifier,
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         val image = painterResource(R.drawable.logonyt)
@@ -95,14 +102,16 @@ fun ContactInfo(
     phoneNumber: String,
     email: String,
     linkedInHandle: String,
-    modifier: Modifier = Modifier
+   // modifier: Modifier = Modifier
 ) {
-    Column(
-    ) {
+    Column (
 
-        Divider(color = Color.White, thickness = 2.dp)
+            ) {
+        //Divider(color = Color.White, thickness = 2.dp, startIndent = 0.dp)
 
-        Row() {
+        Row(
+
+        ) {
             Icon(
                 imageVector = Icons.Default.Smartphone,
                 contentDescription = null,
@@ -111,9 +120,8 @@ fun ContactInfo(
                 text = phoneNumber
             )
         }
-        Divider(
-            color = Color.White, thickness = 2.dp)
-        Row() {
+        //Divider(color = Color.White, thickness = 2.dp)
+        Row {
             Icon(
                 imageVector = Icons.Default.Email,
                 contentDescription = null,
@@ -122,8 +130,8 @@ fun ContactInfo(
                 text = email
             )
         }
-        Divider(color = Color.White, thickness = 2.dp)
-        Row() {
+        //Divider(color = Color.White, thickness = 2.dp)
+        Row {
             Icon(
                 imageVector = Icons.Default.AlternateEmail,
                 contentDescription = null,
