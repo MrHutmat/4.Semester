@@ -21,8 +21,8 @@ const NavBar = () => {
     },
   ];
   return (
-    <div className="sticky z-50 top-0 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100 bg-neutral text-base-content">
-      <nav className="navbar w-full">
+    <div className="sticky z-50 top-0 flex h-16 bg-opacity-90 backdrop-blur transition-all duration-100 bg-neutral text-base-content">
+      <nav className="navbar">
         <div className="flex-1 px-2">
           <div className="btn btn-ghost text-2xl">Hasmarks Perle</div>
 
