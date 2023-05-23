@@ -2,7 +2,7 @@ import React from 'react'
 
 const Socials = () => {
   return (
-    <div className="">Socials</div>
+    <div>Socials</div>
   )
 }
 
