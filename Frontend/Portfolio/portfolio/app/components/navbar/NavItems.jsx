@@ -1,25 +1,20 @@
-'use client';
+"use client";
 
 import { FaBars, FaTimes } from "react-icons/fa";
-import React from "react"
-import { useState } from "react"
+import React from "react";
+import { useState } from "react";
 //import { usePathname } from 'next/navigation';
-import { Link } from 'react-scroll/modules';
+import { Link } from "react-scroll/modules";
 import Socials from "./Socials";
 import Logo from "./Logo";
-
-
 
 const NavItems = () => {
   const [navBar, setNavBar] = useState(false);
 
-
-
-
   const navLinks = [
     {
       label: "Home",
-      page: "home"
+      page: "home",
     },
     {
       label: "About",
@@ -36,35 +31,30 @@ const NavItems = () => {
   ];
 
   return (
-    <div>
-      <div className="md:hidden">
-        <button
-          className=""
-          onClick={() => setNavBar(!navBar)}
-        >
+    <div className="text-turkish mt-4">
+      <div className="md:hidden ml-3">
+        <button className="" onClick={() => setNavBar(!navBar)}>
           {navBar ? <FaTimes size={30} /> : <FaBars size={30} />}
         </button>
       </div>
       <div
-        className={`md:block md:pb-0 md:mt-0 ${navBar ? "block" : "hidden"
-          }`}
+        className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+          navBar ? "block" : "hidden"
+        }`}
       >
-        <ul>
+        <ul className="md:flex md:space-x-0 md:space-y-0 space-y-2">
           {navLinks.map((item, idx) => {
-
             return (
               <Link
                 key={idx}
                 to={item.page}
-                //className={isActive ? 'text-yellow-400' : 'text-black'}
+                className="navButton text-center block ml-3 border-solid hover:border hover:bg-turkish hover:text-themelight cursor-pointer"
                 activeClass="active"
                 spy={true}
                 smooth={true}
                 offset={-100}
                 duration={500}
                 onClick={() => setNavBar(!navBar)}
-
-
               >
                 {item.label}
               </Link>
@@ -72,14 +62,13 @@ const NavItems = () => {
           })}
           {navBar && (
             <div className="md:hidden">
-            <Socials />
-          </div>
+              <Socials />
+            </div>
           )}
-         
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NavItems
+export default NavItems;

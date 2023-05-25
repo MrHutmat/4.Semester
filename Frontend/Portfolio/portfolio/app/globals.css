@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.active {
-    font-weight: bold;
+@layer components {
+  .navButton {
+    @apply px-6 py-2 border;
   }
+}
+
+.active {
+  font-weight: bold;
+}
