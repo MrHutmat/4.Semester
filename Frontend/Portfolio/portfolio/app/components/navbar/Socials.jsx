@@ -1,23 +1,34 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
+import { motion } from "framer-motion";
 
 const Socials = () => {
   return (
-    <div className="flex flex-row items-center">
-      <div>
+    <div className="flex justify-center">
+      <motion.div
+        whileHover={{
+          scale: 1.2,
+        }}
+      >
         <SocialIcon
           url="https://github.com/MrHutmat/4.Semester"
+          target="_blank"
           fgColor="#66fcf1"
           bgColor="transparent"
         />
-      </div>
-      <div>
+      </motion.div>
+      <motion.div
+        whileHover={{
+          scale: 1.2,
+        }}
+      >
         <SocialIcon
           url="https://www.linkedin.com/in/mathias-helsengren-1231b9139/"
+          target="_blank"
           fgColor="#66fcf1"
           bgColor="transparent"
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

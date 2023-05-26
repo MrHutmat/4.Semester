@@ -1,20 +1,13 @@
-import React from 'react'
+import React from "react";
 
 const Projects = () => {
   return (
-    <section id="projects">
-      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A iaculis at erat pellentesque adipiscing commodo elit at. Purus semper eget duis at. Odio tempor orci dapibus ultrices in iaculis nunc sed. Quisque id diam vel quam elementum pulvinar. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Odio morbi quis commodo odio. At augue eget arcu dictum varius duis at consectetur. Tortor condimentum lacinia quis vel eros donec ac odio tempor. Pharetra magna ac placerat vestibulum. Risus ultricies tristique nulla aliquet enim tortor at auctor. Dolor purus non enim praesent elementum facilisis. Elementum integer enim neque volutpat ac tincidunt vitae semper. Semper risus in hendrerit gravida rutrum quisque non. Enim blandit volutpat maecenas volutpat.
-
-Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Ultrices eros in cursus turpis. Lacus vestibulum sed arcu non odio euismod lacinia at quis. Platea dictumst quisque sagittis purus sit amet. Senectus et netus et malesuada fames ac. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Viverra adipiscing at in tellus integer. Integer feugiat scelerisque varius morbi enim nunc faucibus a pellentesque. Amet justo donec enim diam vulputate ut pharetra sit amet. Id porta nibh venenatis cras sed felis eget. A condimentum vitae sapien pellentesque habitant. Aenean pharetra magna ac placerat vestibulum lectus mauris ultrices. Sagittis vitae et leo duis ut diam quam nulla porttitor. Viverra justo nec ultrices dui sapien eget mi proin.
-
-Lacus sed turpis tincidunt id aliquet risus feugiat in. Sed risus pretium quam vulputate dignissim suspendisse in. Aliquet lectus proin nibh nisl condimentum id venenatis a. Purus in mollis nunc sed id semper risus in hendrerit. Turpis tincidunt id aliquet risus feugiat in ante metus dictum. Posuere morbi leo urna molestie at elementum eu facilisis sed. Aliquet bibendum enim facilisis gravida. Dolor magna eget est lorem ipsum dolor sit amet. Interdum velit laoreet id donec ultrices. Posuere urna nec tincidunt praesent semper feugiat. Ac ut consequat semper viverra nam libero justo laoreet.
-
-Vitae purus faucibus ornare suspendisse sed nisi. Duis at consectetur lorem donec. Tristique senectus et netus et malesuada. Vitae semper quis lectus nulla at volutpat diam ut venenatis. Sagittis eu volutpat odio facilisis mauris sit amet. Odio euismod lacinia at quis. Massa enim nec dui nunc mattis enim ut. Ipsum a arcu cursus vitae congue mauris rhoncus aenean. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Elit sed vulputate mi sit amet mauris commodo quis imperdiet. Nunc lobortis mattis aliquam faucibus purus in massa. Volutpat ac tincidunt vitae semper quis lectus. Mi tempus imperdiet nulla malesuada pellentesque elit eget. In nibh mauris cursus mattis molestie a iaculis. Ornare arcu dui vivamus arcu felis bibendum ut tristique. Amet purus gravida quis blandit turpis.
-
-Ipsum consequat nisl vel pretium lectus. Sed adipiscing diam donec adipiscing. Egestas integer eget aliquet nibh praesent. Augue interdum velit euismod in pellentesque massa placerat duis ultricies. Non arcu risus quis varius quam. Et leo duis ut diam quam. Sit amet nulla facilisi morbi tempus iaculis. Congue mauris rhoncus aenean vel elit scelerisque mauris. Scelerisque felis imperdiet proin fermentum leo. Mollis aliquam ut porttitor leo. Ipsum dolor sit amet consectetur adipiscing. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Mi proin sed libero enim. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Id nibh tortor id aliquet lectus proin nibh nisl condimentum. Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique. Nec feugiat nisl pretium fusce id velit ut tortor pretium.</div>
+    <section id="projects" className="snap-center">
+      <div className="h-screen flex space-y-8 items-center justify-center">
+        <div>PROJECTS</div>
+      </div>
     </section>
-  )
-  
-}
+  );
+};
 
-export default Projects
+export default Projects;

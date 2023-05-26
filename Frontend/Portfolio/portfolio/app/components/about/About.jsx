@@ -1,19 +1,64 @@
-import React from 'react'
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="about">
-      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Nunc pulvinar sapien et ligula ullamcorper. In iaculis nunc sed augue lacus viverra vitae congue. A diam maecenas sed enim ut sem viverra. In arcu cursus euismod quis viverra nibh cras. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Leo vel fringilla est ullamcorper. Orci nulla pellentesque dignissim enim sit amet venenatis. Risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Integer feugiat scelerisque varius morbi enim nunc faucibus. Sit amet est placerat in egestas. Ac auctor augue mauris augue. Vivamus at augue eget arcu dictum varius.
-
-Diam vulputate ut pharetra sit amet aliquam id. In iaculis nunc sed augue. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Mauris augue neque gravida in fermentum et sollicitudin. Tempus iaculis urna id volutpat lacus laoreet non. Id volutpat lacus laoreet non curabitur gravida arcu. Hac habitasse platea dictumst quisque sagittis purus sit. Nunc scelerisque viverra mauris in aliquam sem fringilla. Vivamus at augue eget arcu dictum varius duis at consectetur. Velit sed ullamcorper morbi tincidunt ornare. Magna sit amet purus gravida quis. Fringilla urna porttitor rhoncus dolor purus non enim. Dolor sit amet consectetur adipiscing elit. Fringilla urna porttitor rhoncus dolor purus non enim praesent. Ligula ullamcorper malesuada proin libero nunc. Ac turpis egestas maecenas pharetra convallis posuere morbi.
-
-Tincidunt augue interdum velit euismod. Donec et odio pellentesque diam volutpat commodo. Turpis tincidunt id aliquet risus feugiat in. Sagittis id consectetur purus ut faucibus pulvinar elementum. Auctor elit sed vulputate mi sit amet mauris commodo. Praesent semper feugiat nibh sed pulvinar. Justo donec enim diam vulputate ut pharetra sit amet. Dignissim cras tincidunt lobortis feugiat. Libero nunc consequat interdum varius sit amet mattis vulputate. Donec massa sapien faucibus et molestie ac. Volutpat commodo sed egestas egestas. Habitant morbi tristique senectus et netus et malesuada fames. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec. Magna fermentum iaculis eu non diam phasellus vestibulum. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus. Nulla aliquet porttitor lacus luctus accumsan. Ut consequat semper viverra nam libero. Massa placerat duis ultricies lacus sed turpis tincidunt id. Pellentesque pulvinar pellentesque habitant morbi tristique. Quam pellentesque nec nam aliquam.
-
-Est velit egestas dui id ornare arcu odio ut sem. Tellus at urna condimentum mattis pellentesque. Commodo viverra maecenas accumsan lacus vel facilisis. Auctor neque vitae tempus quam pellentesque nec nam. Nunc eget lorem dolor sed viverra. Faucibus nisl tincidunt eget nullam non nisi est sit amet. Mauris in aliquam sem fringilla ut morbi. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Pellentesque diam volutpat commodo sed egestas. A condimentum vitae sapien pellentesque habitant morbi.
-
-Maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Amet massa vitae tortor condimentum. Interdum posuere lorem ipsum dolor sit amet consectetur. Sed egestas egestas fringilla phasellus faucibus. Dignissim suspendisse in est ante in nibh mauris cursus. Non enim praesent elementum facilisis leo. Eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Tortor aliquam nulla facilisi cras fermentum odio. Sit amet nisl suscipit adipiscing bibendum. Interdum consectetur libero id faucibus nisl tincidunt eget. Lectus sit amet est placerat in. Pulvinar mattis nunc sed blandit libero volutpat. Purus sit amet luctus venenatis lectus. Lectus nulla at volutpat diam ut venenatis. Ac turpis egestas maecenas pharetra convallis. Enim eu turpis egestas pretium aenean pharetra magna ac. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat.</div>
+    <section id="about" className="">
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        transition={{
+          duration: 1.5,
+        }}
+        whileInView={{
+          opacity: 1,
+        }}
+        className="h-screen flex flex-col relative max-w-7xl items-center justify-evenly text-center md:text-left md:flex-row mx-auto p-5"
+      >
+        <h3 className="absolute top-24 uppercase tracking-[20px] text-2xl text-darkturkish">
+          About
+        </h3>
+        <motion.img
+          initial={{
+            x: -500,
+            opacity: 0,
+          }}
+          transition={{
+            duration: 1,
+          }}
+          whileInView={{
+            x: 0,
+            opacity: 1,
+          }}
+          src="/images/profile.jpg"
+          className="shadow-2xl -mb-20 w-56 h-56 object-cover rounded-full flex-shrink-0 md:w-[256px] md:h-[400px] md:rounded-2xl md:mb-0"
+        />
+        <div className="px-0 md:px-10 space-y-10">
+          <h4 className="text-4xl font-semibold">Lidt omkring mig.</h4>
+          <p className="text-sm">
+            Mit navn er Mathias Helsengren, jeg er 26 år og går pt på UCL, hvor
+            jeg studerer til datamatiker. Jeg er generelt en glad og meget
+            smilende person, der godt kan lide at møde nye mennesker. Jeg er
+            meget udadvendt og ekstrovert. Samtidig er jeg også meget seriøs og
+            punktlig når det kommer til at arbejde, da jeg synes det er vigtigt
+            ikke kun for en selv, men også ens kollegaer, at man gør sit bedste.
+            På mit studie har jeg arbejde med mange forskellige
+            projektstyringsmodeler, blandt andet SCRUM. Derudover har jeg også
+            arbejdet med React og Android udvikling, som jeg også nævner i mit
+            CV. Hvis i vil vide mere, eller se nogle af de forskellige ting jeg
+            har arbejdet på, er i velkommen til at kontakte mig. <br /> <br />
+            Siden jeg har været barn, har jeg altid interesseret mig for IT og
+            computer, og er vokset op med en far som har været
+            IT-support/IT-administrator. Jeg håber at høre fra jer, og få en
+            praktikplads.
+          </p>
+        </div>
+      </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

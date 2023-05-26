@@ -14,8 +14,8 @@ import { motion } from "framer-motion";
 
 const NavBar = () => {
   return (
-    <div className="sticky top-0 bg-themeblack backdrop-blur z-10">
-      <div className="mx-auto flex justify-between items-start md:items-center p-2 max-w-7xl">
+    <div className="sticky top-0 bg-themeblack backdrop-blur mt-7 z-10">
+      <div className="mx-auto flex justify-between items-start md:items-center p-2 max-w-7xl px-3">
         <motion.div
           initial={{
             x: -500,
@@ -49,7 +49,7 @@ const NavBar = () => {
           transition={{
             duration: 1.5,
           }}
-          className=""
+          className="px-2"
         >
           <Logo />
         </motion.div>
@@ -68,7 +68,7 @@ const NavBar = () => {
           transition={{
             duration: 1,
           }}
-          className="hidden md:block"
+          className="hidden md:flex"
         >
           <Socials />
         </motion.div>
