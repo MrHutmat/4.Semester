@@ -5,14 +5,23 @@ import Projects from "./components/projects/Projects";
 
 export default function Home() {
   return (
-    <div className="text-themegray z-0">
-      <Hero />
+    <div className="text-themegray">
 
-      <About />
+      <section id="home" className="snap-center">
+        <Hero />
+      </section>
 
-      <Projects />
+      <section id="about" className="snap-center">
+        <About />
+      </section>
 
-      <Contact />
+      <section id="projects" className="snap-center">
+        <Projects />
+      </section>
+
+      <section id="contact" className="snap-center">
+        <Contact />
+      </section>
     </div>
   );
 }
