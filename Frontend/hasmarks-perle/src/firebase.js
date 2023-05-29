@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBSF-Uwe7801uwQltk8reg1qMYPbAYVbkw",
-    authDomain: "hasmarks-perle.firebaseapp.com",
-    projectId: "hasmarks-perle",
-    storageBucket: "hasmarks-perle.appspot.com",
-    messagingSenderId: "907160469943",
-    appId: "1:907160469943:web:088cc034931815fa2aa832"
+    apiKey: process.env.VITE_FIREBASE_API_KEY,
+    authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
@@ -19,4 +19,5 @@ const app = initializeApp(firebaseConfig);
 
 
 // Initialize Firebase Authentication and get a reference to the service
-const auth = getAuth(app);
+export const auth = getAuth(app);
+export default app

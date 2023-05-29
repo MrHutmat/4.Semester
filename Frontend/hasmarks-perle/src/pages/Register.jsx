@@ -2,18 +2,20 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import { auth } from "../firebase"
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { UserAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
-const USER_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i;
 
 const Register = () => {
-  const userRef = useRef();
+  const emailRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
   const [validName, setValidName] = useState(false);
-  const [userFocus, setUserFocus] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
 
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
@@ -23,17 +25,16 @@ const Register = () => {
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
-  const [succes, setSucces] = useState(false);
   const [errMsg, setErrMsg] = useState(false);
 
   useEffect(() => {
-    userRef.current.focus();
+    emailRef.current.focus();
   }, []);
 
   useEffect(() => {
-    const result = USER_REGEX.test(user);
+    const result = EMAIL_REGEX.test(email);
     setValidName(result);
-  }, [user]);
+  }, [email]);
 
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
@@ -44,23 +45,32 @@ const Register = () => {
 
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd, matchPwd]);
+  }, [email, pwd, matchPwd]);
+
+
+  const navigatge = useNavigate()
+
+  const { createUser } = UserAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrMsg("Der skete en fejl")
     // To prevent JS "hacking"
-    const v1 = USER_REGEX.test(user);
+    const v1 = EMAIL_REGEX.test(email);
     const v2 = PWD_REGEX.test(pwd);
     if (!v1 || !v2) {
       setErrMsg("Fejl");
       return;
     }
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredentials) => {
-        console.log(userCredentials)
-      }).catch((errMsg) => {
-        console.log(errMsg)
-      })
+    try {
+      await createUser(email, pwd)
+      navigatge("/accountpage")
+    } catch (e) {
+      setErrMsg(e.message);
+      console.log(e.message);
+
+    }
+
   };
 
   return (
@@ -90,20 +100,20 @@ const Register = () => {
                     <span className={validName ? "text-green-500 ml-2 " : "hidden"}>
                       <FaCheck size={12} />
                     </span>
-                    <span className={validName || !user ? "hidden" : "text-red-500 ml-2"}>
+                    <span className={validName || !email ? "hidden" : "text-red-500 ml-2"}>
                       <FaTimes />
                     </span>
                   </label>
                 </div>
                 <input
                   id="email"
-                  ref={userRef}
+                  ref={emailRef}
                   autoComplete="off"
-                  onChange={(e) => setUser(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   type="text"
-                  onFocus={() => setUserFocus(true)}
-                  onBlur={() => setUserFocus(false)}
+                  onFocus={() => setEmailFocus(true)}
+                  onBlur={() => setEmailFocus(false)}
                   placeholder="eksempel@hasmarks-perle.dk"
                   className="input input-bordered"
                 />
@@ -111,7 +121,7 @@ const Register = () => {
               </div>
               <div
                 className={
-                  userFocus && user && !validName
+                  emailFocus && email && !validName
                     ? "alert alert-warning flex-col items-start text-xs font-bold mt-3 mb-5"
                     : "hidden"
                 }
