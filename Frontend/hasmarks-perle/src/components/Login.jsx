@@ -1,9 +1,37 @@
 import React from "react";
+import { auth } from "../firebase"
+import { signInWithEmailAndPassword } from "firebase/auth";
+
+
 
 const Login = () => {
+
+  const [user, setUser] = usteState("");
+  const [pwd, setPwd] = useState("");
+  const [succes, setSucces] = useState(false);
+  const [errMsg, setErrMsg] = useState(false);
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // To prevent JS "hacking"
+    const v1 = USER_REGEX.test(user);
+    const v2 = PWD_REGEX.test(pwd);
+    if (!v1 || !v2) {
+      setErrMsg("Fejl");
+      return;
+    }
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredentials) => {
+        console.log(userCredentials)
+      }).catch((errMsg) => {
+        console.log(errMsg)
+      })
+  };
+
   return (
     <div className="hero min-h-screen bg-base-100">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero-content flex-col lg:flex-row-reverse max-w-4xl">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Login her!</h1>
           <p className="py-6">
