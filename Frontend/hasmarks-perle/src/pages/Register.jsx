@@ -48,13 +48,13 @@ const Register = () => {
   }, [email, pwd, matchPwd]);
 
 
-  const navigatge = useNavigate()
+  const navigate = useNavigate()
 
   const { createUser } = UserAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrMsg("Der skete en fejl")
+    setErrMsg("")
     // To prevent JS "hacking"
     const v1 = EMAIL_REGEX.test(email);
     const v2 = PWD_REGEX.test(pwd);
@@ -64,7 +64,7 @@ const Register = () => {
     }
     try {
       await createUser(email, pwd)
-      navigatge("/accountpage")
+      navigate("/accountpage")
     } catch (e) {
       setErrMsg(e.message);
       console.log(e.message);

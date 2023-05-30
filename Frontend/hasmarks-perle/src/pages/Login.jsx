@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { auth } from "../firebase"
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { UserAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -8,20 +9,22 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
-  const [succes, setSucces] = useState(false);
   const [errMsg, setErrMsg] = useState(false);
 
+  const navigate = useNavigate();
+  const { signIn } = UserAuth()
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrMsg("")
+    try {
+      await signIn(email, pwd)
+      navigate("/accountpage")
+    } catch (e) {
+      setErrMsg(e.message);
+      console.log(e.message);
 
-    signInWithEmailAndPassword(auth, email, pwd)
-      .then((userCredentials) => {
-        console.log(userCredentials)
-      }).catch((errMsg) => {
-        console.log(errMsg)
-      })
+    }
   };
 
   return (
