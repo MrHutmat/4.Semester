@@ -1,3 +1,4 @@
+import Backgroundeffect from "./components/Backgroundeffect";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
 import Hero from "./components/hero/Hero";
@@ -11,16 +12,18 @@ export default function Home() {
         <Hero />
       </section>
 
-      <section id="about" className="snap-center">
+      <section id="about" className="snap-center relative">
         <About />
+        <Backgroundeffect />
       </section>
 
       <section id="projects" className="snap-center">
         <Projects />
       </section>
 
-      <section id="contact" className="snap-center">
+      <section id="contact" className="snap-center relative">
         <Contact />
+        <Backgroundeffect />
       </section>
     </div>
   );

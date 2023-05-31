@@ -20,3 +20,7 @@
 .active {
   font-weight: bold;
 }
+
+.contactInfo {
+  @apply outline-none bg-darkturkish/30 rounded-sm border-b px-6 py-3 border-darkturkish/20 text-themegray placeholder-themegray transition-all focus:border-themepink/70 focus:text-themepink hover:border-themepink/70;
+}

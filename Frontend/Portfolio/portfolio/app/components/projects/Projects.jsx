@@ -21,9 +21,9 @@ const Projects = () => {
 
 
   return (
-    <div className="h-screen max-w-7xl relative flex space-y-8 items-center justify-center">
+    <div className="z-10 h-screen flex flex-col relative max-w-7xl items-center justify-evenly text-center md:text-left md:flex-row mx-auto p-5">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-2xl text-darkturkish">
-        Projekter
+        Projects
       </h3>
 
       <div>

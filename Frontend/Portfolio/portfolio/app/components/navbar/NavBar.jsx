@@ -17,8 +17,8 @@ import { motion } from "framer-motion";
 
 const NavBar = () => {
   return (
-    <div className="sticky top-0 bg-themeblack mt-7 z-10 py-5 px-2 max-w-7xl mx-auto">
-      <div className="flex justify-between items-start md:items-center">
+    <div className="sticky top-0 z-20 mt-7 py-5 px-2 bg-themeblack">
+      <div className="flex justify-between items-start md:items-center max-w-7xl mx-auto">
         <motion.div
           initial={{
             x: -500,
