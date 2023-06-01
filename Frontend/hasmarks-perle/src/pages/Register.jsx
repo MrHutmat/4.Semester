@@ -10,6 +10,8 @@ const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i;
 
 const Register = () => {
+
+
   const emailRef = useRef();
   const errRef = useRef();
 

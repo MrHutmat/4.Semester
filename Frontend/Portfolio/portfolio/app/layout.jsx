@@ -12,7 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`bg-themeblack ${inter.className}`}>
+      <body
+        className={`bg-themeblack overflow-y-scroll overflow-x-hidden ${inter.className}`}
+      >
         <NavBar />
         {children}
       </body>

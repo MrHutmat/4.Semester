@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div className="h-screen grid place-items-center col-start-1 row-start-1 overflow-hidden">
+    <div className="h-screen grid place-items-center col-start-1 row-start-1">
       <div className="flex flex-col lg:flex-row-reverse items-center justify-center p-5 gap-10 max-w-7xl">
         <motion.img
           initial={{

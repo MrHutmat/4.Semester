@@ -7,7 +7,6 @@ import Projects from "./components/projects/Projects";
 export default function Home() {
   return (
     <div className="text-themegray">
-
       <section id="home" className="snap-center">
         <Hero />
       </section>

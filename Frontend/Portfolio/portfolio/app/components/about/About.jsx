@@ -37,7 +37,7 @@ const About = () => {
       />
       <div className="px-0 md:px-10 space-y-10">
         <h4 className="text-4xl font-semibold">Lidt omkring mig.</h4>
-        <p className="text-sm">
+        <p className="">
           Mit navn er Mathias Helsengren, jeg er 26 år og går pt på UCL, hvor
           jeg studerer til datamatiker. Jeg er generelt en glad og meget
           smilende person, der godt kan lide at møde nye mennesker. Jeg er meget
