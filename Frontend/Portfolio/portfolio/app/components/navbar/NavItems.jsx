@@ -50,12 +50,12 @@ const NavItems = () => {
           navBar ? "block" : "hidden"
         }`}
       >
-        <div className="md:flex md:space-x-0 md:space-y-0 space-y-2 px-4">
+        <div className="md:flex md:space-x-0 md:space-y-0 space-y-2 px-3 md:px-1">
           {navLinks.map((item) => {
             return (
               <div
                 key={item.label}
-                className="navButton hover:bg-left-bottom hover:text-themeblack"
+                className="navButton min-w-[91px] w-[150px] md:w-auto hover:bg-left-bottom hover:text-themeblack"
               >
                 {/* <Link
                   key={item.linkId}
@@ -75,7 +75,7 @@ const NavItems = () => {
                   key={item.linkId}
                   href={item.page}
                   scroll={false}
-                  className="font-bold px-4 py-2 text-center block ml-0 cursor-pointer"
+                  className="font-bold px-3 py-2 text-center block ml-0 cursor-pointer"
                   onClick={() => setNavBar(false)}
                 >
                   {item.label}

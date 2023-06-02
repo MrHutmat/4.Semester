@@ -1,20 +1,13 @@
-import React from 'react'
+import React from "react";
 import { AiOutlineFile } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 const AppDev = () => {
-    return (
-        <div>
-            <h4>App devolopment</h4>
-            <div>
-                <p>Her kan du læse mere omkring mit arbejde med app devolopment, blandt andet læringsmål og litteraturlist</p>
-                <button className="text-themelight bg-turkish hover:bg-darkturkish font-bold py-2 px-4 rounded inline-flex items-center">
-                    <AiOutlineFile size={25} className="mr-2" />
-                    <span>Link til App devolopment</span>
-                </button>
-            </div>
-        </div>
-    )
-}
+  return (
+    <button className="navButton text-turkish hover:bg-left-bottom hover:text-themeblack font-bold px-4 py-2 text-center ml-0 cursor-pointer">
+      <span>App dev</span>
+    </button>
+  );
+};
 
-export default AppDev
+export default AppDev;

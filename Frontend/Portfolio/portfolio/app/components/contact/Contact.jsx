@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import React from "react";
 import { DevicePhoneMobileIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
@@ -16,17 +17,56 @@ const Contact = () => {
 
   return (
     <div className="z-10 h-screen flex flex-col relative max-w-7xl items-center justify-evenly text-center md:text-left md:flex-row mx-auto p-5">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-2xl text-darkturkish">
+      <motion.h3
+        initial={{
+          opacity: 0,
+        }}
+        transition={{
+          duration: 1.5,
+        }}
+        whileInView={{
+          opacity: 1,
+        }}
+        className="absolute top-24 uppercase tracking-[20px] text-2xl text-darkturkish"
+      >
         Contact
-      </h3>
+      </motion.h3>
 
       <div className="flex flex-col space-y-12">
-        <h4 className="text-4xl font-bold text-center">
+        <motion.h4
+          initial={{
+            opacity: 0,
+          }}
+          transition={{
+            duration: 1.5,
+            times: [0, 0.2, 0.8, 1],
+            ease: "easeOut",
+          }}
+          whileInView={{
+            opacity: [0, 0.1, 0.8, 1],
+          }}
+          className="text-4xl font-bold text-center"
+        >
           Her kan du hurtigt komme i kontakt med mig, hvis du vil vide mere!
-        </h4>
+        </motion.h4>
 
         <div className="flex flex-col lg:flex-row-reverse">
-          <div className="lg:space-y-10 flex lg:flex-col lg:justify-center space-x-[70px] lg:space-x-0 lg:items-start mb-10 px-5 mx-auto">
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 300,
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.3,
+              //ease: "easeIn",
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            className="lg:space-y-10 flex lg:flex-col lg:justify-center space-x-[70px] lg:space-x-0 lg:items-start mb-10 px-5 mx-auto"
+          >
             <div className="flex items-center justify-center space-x-5 hover:animate-pulse">
               <DevicePhoneMobileIcon className="text-themepink h-7 w-7" />
               <p className="text-lg lg:text-2xl font-semibold">+45 23432371</p>
@@ -43,9 +83,22 @@ const Contact = () => {
               <MapPinIcon className="text-themepink h-7 w-7" />
               <p className="text-2xl font-semibold">4219 Timber Oak Drive</p>
             </div> */}
-          </div>
+          </motion.div>
 
-          <form
+          <motion.form
+            initial={{
+              opacity: 0,
+              x: -300,
+            }}
+            transition={{
+              duration: 0.5,
+
+              //ease: "easeIn",
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
             noValidate
             className="flex flex-col space-y-2 w-fit mx-auto"
             onSubmit={handleSubmit(onSubmit)}
@@ -119,7 +172,7 @@ const Contact = () => {
             {errors.textMsg && (
               <Alert keyId={"textMsgKey"} setAlert={errors.textMsg?.message} />
             )}
-          </form>
+          </motion.form>
         </div>
       </div>
     </div>
