@@ -5,9 +5,8 @@ import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Frontend from "./Frontend";
 import AppDev from "./AppDev";
-import Link from "next/link";
 
-const Projects = () => {
+const ProjectAlt = () => {
   const projects = [
     {
       name: "Test",
@@ -16,7 +15,6 @@ const Projects = () => {
       image: "/images/profile.jpg",
       github: "https://github.com/hqasmei/platoio",
       projectId: 1,
-      path: "/",
     },
     {
       name: "Test",
@@ -25,7 +23,6 @@ const Projects = () => {
       image: "/images/profile.jpg",
       github: "https://github.com/hqasmei/platoio",
       projectId: 2,
-      path: "/",
     },
     {
       name: "Test",
@@ -33,7 +30,6 @@ const Projects = () => {
       image: "/images/profile.jpg",
       github: "https://github.com/hqasmei/platoio",
       projectId: 3,
-      path: "/",
     },
     {
       name: "Test",
@@ -41,7 +37,6 @@ const Projects = () => {
       image: "/images/profile.jpg",
       github: "https://github.com/hqasmei/platoio",
       projectId: 4,
-      path: "/",
     },
   ];
 
@@ -65,20 +60,12 @@ const Projects = () => {
             </div>
 
             <div className="flex flex-row lg:flex-col space-x-2 lg:space-x-0 lg:space-y-5">
-              <Link
-                key={"frontend"}
-                href={"/frontend"}
-                className="navButton basis-1/2 text-turkish hover:bg-left-bottom hover:text-themeblack font-bold px-4 py-2 text-center ml-0 cursor-pointer"
-              >
+              <button className="navButton basis-1/2 text-turkish hover:bg-left-bottom hover:text-themeblack font-bold px-4 py-2 text-center ml-0 cursor-pointer">
                 <span>Frontend</span>
-              </Link>
-              <Link
-                key={"appdev"}
-                href={"/appdev"}
-                className="navButton basis-1/2 text-turkish hover:bg-left-bottom hover:text-themeblack font-bold px-4 py-2 text-center ml-0 cursor-pointer"
-              >
+              </button>
+              <button className="navButton basis-1/2 text-turkish hover:bg-left-bottom hover:text-themeblack font-bold px-4 py-2 text-center ml-0 cursor-pointer">
                 <span>App dev</span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -90,28 +77,23 @@ const Projects = () => {
                 className="flex flex-col mx-auto xl:mx-0 xl:flex-row text-start justify-between items-center gap-6 xl:max-w-none max-w-[700px] "
                 key={project.projectId}
               >
-                <div className="space-y-4">
-                  <h4 className="text-3xl font-semibold">{project.name}</h4>
-                  <p>{project.description}</p>
-                  <div className="flex">
-                    <Link key={project.name} href={project.path}>
-                      <button className="navButton text-turkish hover:bg-left-bottom hover:text-themeblack font-bold px-4 py-2 text-center ml-0 cursor-pointer">
-                        Læs mere...
-                      </button>
-                    </Link>
-                    <motion.div
-                      whileHover={{
-                        scale: 1.2,
-                      }}
-                    >
+                <div className="space-y-4 flex flex-col">
+                  <div className="flex justify-between">
+                    <h4 className="text-3xl font-semibold">{project.name}</h4>
+                    <div>
                       <SocialIcon
                         url={project.github}
                         target="_blank"
                         fgColor="#66fcf1"
                         bgColor="transparent"
                       />
-                    </motion.div>
+                    </div>
                   </div>
+                  <p>{project.description}</p>
+
+                  <button className="navButton text-turkish hover:bg-left-bottom hover:text-themeblack font-bold px-4 py-2 text-center ml-0 cursor-pointer">
+                    Læs mere...
+                  </button>
                 </div>
                 <img
                   className="shadow-2xl object-cover rounded-lg flex-shrink-0 w-[700px] h-[400px]"
@@ -126,5 +108,5 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectsAlt;
 //grid col-start-1 row-start-1 xl:justify-between space-x-5 xl:flex-row p-5 space-y-8 text-start place-items-center
