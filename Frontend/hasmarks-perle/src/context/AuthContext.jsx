@@ -7,6 +7,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 
+//Test til git
 const AuthContext = createContext();
 
 export const UserAuth = () => {
