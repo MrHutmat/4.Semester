@@ -57,20 +57,6 @@ const NavItems = () => {
                 key={item.label}
                 className="navButton min-w-[91px] w-[150px] md:w-auto hover:bg-left-bottom hover:text-themeblack"
               >
-                {/* <Link
-                  key={item.linkId}
-                  to={item.page}
-                  //className="block border-2 border-gray-400 hover:border-gray-500 px-4 py-2 rounded-lg"
-                  className="px-4 py-2 text-center block ml-0 cursor-pointer"
-                  activeClass="active"
-                  spy={true}
-                  smooth={true}
-                  offset={-300}
-                  duration={500}
-                  onClick={() => setNavBar(!navBar)}
-                >
-                  {item.label}
-                </Link> */}
                 <Link
                   key={item.linkId}
                   href={item.page}
