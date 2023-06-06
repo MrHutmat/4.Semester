@@ -6,4 +6,7 @@ const Contact = () => {
     )
 }
 
+
 export default Contact
+
+//Test til git
