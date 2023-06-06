@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import UserMenu from "./UserMenu";
 import UserItems from "./UserItems";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,32 +10,36 @@ const NavBar = () => {
   const links = [
     {
       id: 1,
-      link: "home",
+      label: "home",
+      url: "/"
     },
     {
       id: 2,
-      link: "contact",
+      label: "contact",
+      url: "/contact"
     },
     {
       id: 3,
-      link: "about",
+      label: "about",
+      url: "/about"
     },
   ];
   return (
-    <div className="sticky z-50 top-0 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100 bg-neutral text-base-content">
-      <nav className="navbar w-full">
+    <div className="sticky z-50 top-0 flex h-16 bg-opacity-90 backdrop-blur transition-all duration-100 bg-neutral text-base-content">
+      <nav className="navbar">
         <div className="flex-1 px-2">
           <div className="btn btn-ghost text-2xl">Hasmarks Perle</div>
 
           <div className="flex flex-1 px-2 justify-end">
             <ul className="hidden items-center md:flex">
-              {links.map(({ id, link }) => (
-                <li
+              {links.map(({ id, label, url }) => (
+                <Link
                   key={id}
+                  to={url}
                   className="px-4 cursor-pointer capitalize font-medium hover:underline hover:text-secondary transition duration-200"
                 >
-                  {link}
-                </li>
+                  {label}
+                </Link>
               ))}
               <UserMenu />
             </ul>
@@ -49,11 +54,15 @@ const NavBar = () => {
 
               {isOpen && (
                 <ul className="menu dropdown-content capitalize mt-4 p-2 shadow bg-neutral rounded-box w-52">
-                  {links.map(({ id, link }) => (
-                    <li key={id}>
-                      <a>{link}</a>
-                    </li>
+                  {links.map(({ id, label, url }) => (
+                    <Link
+                      key={id}
+                      to={url}
+                    >
+                      <a>{label}</a>
+                    </Link>
                   ))}
+
                   <UserItems />
                 </ul>
               )}

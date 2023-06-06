@@ -1,15 +1,23 @@
 import React, { useState, useRef, useEffect } from "react";
+import { FaCheck, FaTimes } from "react-icons/fa";
+import { auth } from "../firebase"
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { UserAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+
+const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i;
 
 const Register = () => {
-  const userRef = useRef();
+
+
+  const emailRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
   const [validName, setValidName] = useState(false);
-  const [userFocus, setUserFocus] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
 
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
@@ -19,17 +27,16 @@ const Register = () => {
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
-  const [succes, setSucces] = useState(false);
   const [errMsg, setErrMsg] = useState(false);
 
   useEffect(() => {
-    userRef.current.focus();
+    emailRef.current.focus();
   }, []);
 
   useEffect(() => {
-    const result = USER_REGEX.test(user);
+    const result = EMAIL_REGEX.test(email);
     setValidName(result);
-  }, [user]);
+  }, [email]);
 
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
@@ -40,24 +47,37 @@ const Register = () => {
 
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd, matchPwd]);
+  }, [email, pwd, matchPwd]);
+
+
+  const navigate = useNavigate()
+
+  const { createUser } = UserAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrMsg("")
     // To prevent JS "hacking"
-    const v1 = USER_REGEX.test(user);
+    const v1 = EMAIL_REGEX.test(email);
     const v2 = PWD_REGEX.test(pwd);
     if (!v1 || !v2) {
       setErrMsg("Fejl");
       return;
     }
-    console.log(user, pwd);
-    setSucces(true);
+    try {
+      await createUser(email, pwd)
+      navigate("/accountpage")
+    } catch (e) {
+      setErrMsg(e.message);
+      console.log(e.message);
+
+    }
+
   };
 
   return (
     <div className="hero min-h-screen bg-base-100">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero-content flex-col lg:flex-row-reverse max-w-4xl">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Registrer her!</h1>
           <p className="py-6">
@@ -76,37 +96,54 @@ const Register = () => {
             </div>
             <form onSubmit={handleSubmit}>
               <div className="form-control">
-                <label className="label" htmlFor="email">
-                  <span className="label-text">Email</span>
-                </label>
+                <div className="flex">
+                  <label className="label" htmlFor="email">
+                    <span className="label-text">Email</span>
+                    <span className={validName ? "text-green-500 ml-2 " : "hidden"}>
+                      <FaCheck size={12} />
+                    </span>
+                    <span className={validName || !email ? "hidden" : "text-red-500 ml-2"}>
+                      <FaTimes />
+                    </span>
+                  </label>
+                </div>
                 <input
                   id="email"
-                  ref={userRef}
+                  ref={emailRef}
                   autoComplete="off"
-                  onChange={(e) => setUser(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   type="text"
-                  onFocus={() => setUserFocus(true)}
-                  onBlur={() => setUserFocus(false)}
+                  onFocus={() => setEmailFocus(true)}
+                  onBlur={() => setEmailFocus(false)}
                   placeholder="eksempel@hasmarks-perle.dk"
                   className="input input-bordered"
                 />
+
               </div>
               <div
                 className={
-                  userFocus && user && !validName
-                    ? "badge badge-info flex gap-2"
+                  emailFocus && email && !validName
+                    ? "alert alert-warning flex-col items-start text-xs font-bold mt-3 mb-5"
                     : "hidden"
                 }
               >
-                <p> 4-24 chars.</p>
+                <p>4-24 chars.</p>
                 <p>Must begin with a letter</p>
                 <p>letter blab bla bla allowed.</p>
               </div>
               <div className="form-control">
-                <label className="label" htmlFor="password">
-                  <span className="label-text">Password</span>
-                </label>
+                <div className="flex">
+                  <label className="label" htmlFor="password">
+                    <span className="label-text">Password</span>
+                    <span className={validPwd ? "text-green-500 ml-2 " : "hidden"}>
+                      <FaCheck size={12} />
+                    </span>
+                    <span className={validPwd || !pwd ? "hidden" : "text-red-500 ml-2"}>
+                      <FaTimes />
+                    </span>
+                  </label>
+                </div>
                 <input
                   type="password"
                   id="password"
@@ -120,19 +157,27 @@ const Register = () => {
               </div>
               <div
                 className={
-                  pwdFocus && pwd && !validPwd
-                    ? "badge badge-info flex gap-2"
+                  pwdFocus && !validPwd
+                    ? "alert alert-warning flex-col items-start text-xs font-bold mt-3 mb-5"
                     : "hidden"
                 }
               >
-                <p> 4-24 chars.</p>
+                <p>4-24 chars.</p>
                 <p>Must begin with a letter</p>
                 <p>letter blab bla bla allowed.</p>
               </div>
               <div className="form-control">
-                <label className="label" htmlFor="confirm_password">
-                  <span className="label-text">Bekræft password</span>
-                </label>
+                <div className="flex">
+                  <label className="label" htmlFor="confirm_password">
+                    <span className="label-text">Bekræft password</span>
+                    <span className={validMatch && matchPwd ? "text-green-500 ml-2 " : "hidden"}>
+                      <FaCheck size={12} />
+                    </span>
+                    <span className={validMatch || !matchPwd ? "hidden" : "text-red-500 ml-2"}>
+                      <FaTimes />
+                    </span>
+                  </label>
+                </div>
                 <input
                   type="password"
                   id="confirm_password"
@@ -147,13 +192,11 @@ const Register = () => {
               <div
                 className={
                   matchFocus && !validMatch
-                    ? "badge badge-info flex gap-2"
+                    ? "alert alert-warning flex-col items-start text-xs font-bold mt-3 mb-5"
                     : "hidden"
                 }
               >
-                <p> 4-24 chars.</p>
-                <p>Must begin with a letter</p>
-                <p>letter blab bla bla allowed.</p>
+                <p>Koden skal være det samme begge steder</p>
               </div>
               <div className="form-control mt-6">
                 <button

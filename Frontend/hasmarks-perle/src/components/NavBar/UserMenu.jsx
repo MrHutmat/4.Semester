@@ -22,8 +22,7 @@ const UserMenu = () => {
 
       {isOpen && (
         <ul className="menu dropdown-content capitalize mt-4 p-2 shadow bg-neutral rounded-box w-52">
-          <UserItems onClick={() => {}} label="Login" />
-          <UserItems onClick={() => {}} label="Sign Up" />
+          <UserItems />
         </ul>
       )}
     </div>

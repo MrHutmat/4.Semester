@@ -20,6 +20,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.example.businesscardapp.ui.theme.BusinessCardAppTheme
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
@@ -40,31 +42,36 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ComposableBusinessCardApp(
-
-) {
+fun ComposableBusinessCardApp() {
     Surface(color = Color(0xFF4C5270), modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier = Modifier.fillMaxSize()
-                .padding(16.dp),
-            // horizontalAlignment = Alignment.CenterHorizontally,
-           // verticalArrangement = Arrangement.SpaceAround,
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally // Center the content horizontally
         ) {
+            Spacer(modifier = Modifier.weight(1f)) // Add space to center content
+
             InformationCard(
                 fullName = stringResource(R.string.full_name),
                 title = stringResource(R.string.title),
-                modifier = Modifier.weight(1f),
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
+
+            Spacer(modifier = Modifier.weight(1f)) // Add space to center content
+
             ContactInfo(
                 phoneNumber = stringResource(R.string.phone_number),
                 email = stringResource(R.string.email),
-                linkedInHandle = stringResource(R.string.linkedin_handle)
+                linkedInHandle = stringResource(R.string.linkedin_handle),
+              //  modifier = Modifier.align(Alignment.CenterHorizontally)
             )
-
 
         }
     }
 }
+
+
+//val image = painterResource(R.drawable.logonyt)
+
 
 @Composable
 fun InformationCard(
@@ -79,19 +86,28 @@ fun InformationCard(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         val image = painterResource(R.drawable.logonyt)
+        //Spacer(modifier = Modifier.padding(top = 64.dp)) // Increase the top padding for logo positioning
+
         Image(
             painter = image,
             contentDescription = null,
             modifier = Modifier
                 .size(250.dp)
+                .padding(bottom = 16.dp)
             )
         Text(
             text = fullName,
-            fontSize = 35.sp
+            fontSize = 35.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(bottom = 8.dp)
         )
         Text(
             text = title,
-            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Normal,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(bottom = 16.dp)
         )
     }
 
@@ -102,47 +118,72 @@ fun ContactInfo(
     phoneNumber: String,
     email: String,
     linkedInHandle: String,
-   // modifier: Modifier = Modifier
+    modifier: Modifier = Modifier
 ) {
+
     Column (
-
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+            .padding(bottom = 32.dp) // Add space from the bottom
             ) {
-        //Divider(color = Color.White, thickness = 2.dp, startIndent = 0.dp)
 
-        Row(
+        Divider(color = Color.White, thickness = 1.dp, modifier = Modifier.fillMaxWidth()) // Add divider line
+        Spacer(modifier = Modifier.height(8.dp)) // Add vertical spacing
 
-        ) {
-            Icon(
-                imageVector = Icons.Default.Smartphone,
-                contentDescription = null,
-            )
-            Text(
-                text = phoneNumber
-            )
-        }
-        //Divider(color = Color.White, thickness = 2.dp)
-        Row {
-            Icon(
-                imageVector = Icons.Default.Email,
-                contentDescription = null,
-            )
-            Text(
-                text = email
-            )
-        }
-        //Divider(color = Color.White, thickness = 2.dp)
-        Row {
-            Icon(
-                imageVector = Icons.Default.AlternateEmail,
-                contentDescription = null,
-            )
-            Text(
-                text = linkedInHandle
-            )
-        }
+
+        ContactRow(
+            icon = Icons.Default.Smartphone,
+            text = phoneNumber
+        )
+
+        Spacer(modifier = Modifier.height(8.dp)) // Add vertical spacing
+        Divider(color = Color.White, thickness = 1.dp, modifier = Modifier.fillMaxWidth()) // Add divider line
+        Spacer(modifier = Modifier.height(8.dp)) // Add vertical spacing
+
+
+
+
+        ContactRow(
+            icon = Icons.Default.Email,
+            text = email
+        )
+        Spacer(modifier = Modifier.height(8.dp)) // Add vertical spacing
+        Divider(color = Color.White, thickness = 1.dp, modifier = Modifier.fillMaxWidth()) // Add divider line
+        Spacer(modifier = Modifier.height(8.dp)) // Add vertical spacing
+
+
+
+        ContactRow(
+            icon = Icons.Default.AlternateEmail,
+            text = linkedInHandle
+        )
     }
 }
 
+@Composable
+fun ContactRow(
+    icon: ImageVector,
+    text: String
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            modifier = Modifier.size(24.dp)
+        )
+        Spacer(modifier = Modifier.width(8.dp)) // Add horizontal spacing
+
+        Text(
+            text = text,
+            modifier = Modifier.weight(1f)
+        )
+    }
+            //Divider(color = Color.White, thickness = 1.dp, modifier = Modifier.fillMaxWidth())
+
+}
 
 
 
