@@ -7,9 +7,15 @@ import { useState } from "react";
 //import { Link } from "react-scroll/modules";
 import Socials from "./Socials";
 import Link from "next/link";
+import MobileNav from "./MobileNav";
+import { Fade as Hamburger } from "hamburger-react";
 
 const NavItems = () => {
-  const [navBar, setNavBar] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
 
   const navLinks = [
     {
@@ -36,18 +42,40 @@ const NavItems = () => {
 
   return (
     <div className="text-turkish">
-      <div className="md:hidden ml-3">
-        <button
-          className="mt-1 flex items-center"
-          onClick={() => setNavBar(!navBar)}
-        >
-          {navBar ? <FaTimes size={30} /> : <FaBars size={30} />}
+      <div className="md:hidden ml-3 flex items-center">
+        {/* <button className="mt-1 flex items-center" onClick={handleClick}>
+          {isOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
           <p className="px-4 text-themegray font-bold text-lg">MENU</p>
         </button>
+        <button
+          className="flex flex-col justify-center items-center"
+          onClick={handleClick}
+        >
+          <span
+            className={`bg-turkish block transition-all duration-300 ease-out h-1 w-8 rounded-sm ${
+              isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
+            }`}
+          ></span>
+
+          <span
+            className={`bg-turkish block transition-all duration-300 ease-out h-1 w-8 rounded-sm my-1 ${
+              isOpen ? "opacity-0" : "opacity-100"
+            }`}
+          ></span>
+
+          <span
+            className={`bg-turkish block transition-all duration-300 ease-out h-1 w-8 rounded-sm ${
+              isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
+            }`}
+          ></span>
+        </button> */}
+        <Hamburger direction="right" toggled={isOpen} toggle={setIsOpen} />
+
+        <p className="px-4 text-themegray font-bold text-lg">MENU</p>
       </div>
       <div
         className={`flex-1 justify-self-center pb-3 mt-8 md:items-center md:block md:pb-0 md:mt-0 ${
-          navBar ? "block" : "hidden"
+          isOpen ? "block" : "hidden"
         }`}
       >
         <div className="md:flex md:space-x-0 md:space-y-0 space-y-2 px-3 md:px-1">
@@ -62,14 +90,14 @@ const NavItems = () => {
                   href={item.page}
                   scroll={false}
                   className="font-bold px-3 py-2 text-center block ml-0 cursor-pointer"
-                  onClick={() => setNavBar(false)}
+                  onClick={() => setIsOpen(false)}
                 >
                   {item.label}
                 </Link>
               </div>
             );
           })}
-          {navBar && (
+          {isOpen && (
             <div className="md:hidden">
               <Socials />
             </div>
