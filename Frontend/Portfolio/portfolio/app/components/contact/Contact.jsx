@@ -17,20 +17,9 @@ const Contact = () => {
 
   return (
     <div className="z-10 h-screen flex flex-col relative max-w-7xl items-center justify-evenly text-center md:text-left md:flex-row mx-auto p-5">
-      <motion.h3
-        initial={{
-          opacity: 0,
-        }}
-        transition={{
-          duration: 1.5,
-        }}
-        whileInView={{
-          opacity: 1,
-        }}
-        className="absolute top-24 uppercase tracking-[20px] text-2xl text-darkturkish"
-      >
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-2xl text-darkturkish">
         Contact
-      </motion.h3>
+      </h3>
 
       <div className="flex flex-col space-y-12">
         <motion.h4

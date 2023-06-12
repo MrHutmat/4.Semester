@@ -5,28 +5,17 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <motion.div
-      initial={{
-        opacity: 0,
-      }}
-      transition={{
-        duration: 1.5,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      className="z-10 h-screen flex flex-col relative max-w-7xl items-center justify-evenly text-center md:text-left md:flex-row mx-auto p-5"
-    >
+    <div className="z-10 h-screen flex flex-col relative max-w-7xl items-center justify-evenly text-center md:text-left md:flex-row mx-auto p-5">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-2xl text-darkturkish">
         About
       </h3>
       <motion.img
         initial={{
-          x: -100,
+          x: -300,
           opacity: 0,
         }}
         transition={{
-          duration: 1,
+          duration: 0.6,
         }}
         whileInView={{
           x: 0,
@@ -35,7 +24,22 @@ const About = () => {
         src="/images/profile.jpg"
         className="shadow-2xl -mb-20 w-56 h-56 object-cover rounded-full flex-shrink-0 md:w-[256px] md:h-[400px] md:rounded-2xl md:mb-0"
       />
-      <div className="px-0 md:px-10 space-y-10">
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: 300,
+        }}
+        transition={{
+          duration: 0.6,
+          delay: 0.3,
+          //ease: "easeIn",
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        className="px-0 md:px-10 space-y-10"
+      >
         <h4 className="text-4xl font-semibold">Lidt omkring mig.</h4>
         <p className="">
           Mit navn er Mathias Helsengren, jeg er 26 år og går pt på UCL, hvor
@@ -54,8 +58,8 @@ const About = () => {
           IT-support/IT-administrator. Jeg håber at høre fra jer, og få en
           praktikplads.
         </p>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 

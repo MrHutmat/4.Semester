@@ -52,9 +52,9 @@ const Projects = () => {
       </h3>
 
       <div className="flex flex-col mt-[300px]">
-        <div className="flex flex-col place-items-center">
-          <div className="lg:grid grid-cols-2 auto-cols-max p-5 gap-10 mb-20 space-y-5">
-            <div className="text-start">
+        <div className="flex flex-col hover:scale-105 duration-300 border-spacing-30 border-none border-opacity-25 rounded-2xl border-themegray shadow-xl bg-themelight px-10 py-24 xl:py-0">
+          <div className="items-center xl:flex gap-0 space-y-5 xl:space-y-0 xl:max-w-none max-w-[700px]">
+            <div className="text-start flex-1">
               <h3 className="text-4xl font-semibold mb-2">4. Semester.</h3>
               <p className="text-lg">
                 Her er mine 2 emner, <a className="text-turkish">frontend</a> og{" "}
@@ -64,7 +64,12 @@ const Projects = () => {
               </p>
             </div>
 
-            <div className="flex flex-row lg:flex-col space-x-2 lg:space-x-0 lg:space-y-5">
+            {/* <div className="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch"></div>
+            py-24 xl:py-40
+            */}
+            <div className="hidden opacity-10 mx-10 xl:inline-block h-[600px] min-h-[1em] w-0.5 self-stretch bg-themegray"></div>
+
+            <div className="flex-1 flex flex-row xl:flex-col space-x-2 xl:space-x-0 xl:space-y-5 col-span-4">
               <Link
                 key={"frontend"}
                 href={"/frontend"}
@@ -83,11 +88,13 @@ const Projects = () => {
           </div>
         </div>
 
+        <div className=" border-turkish mb-40 mt-40 opacity-70"></div>
+
         <div className="flex flex-col gap-10">
           {projects.map((project) => {
             return (
               <div
-                className="flex flex-col mx-auto xl:mx-0 xl:flex-row text-start justify-between items-center gap-6 xl:max-w-none max-w-[700px] "
+                className="flex flex-col mx-auto xl:mx-0 xl:flex-row text-start justify-between items-center gap-6 xl:max-w-none max-w-[700px]"
                 key={project.projectId}
               >
                 <div className="space-y-4">
