@@ -6,18 +6,17 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBSF-Uwe7801uwQltk8reg1qMYPbAYVbkw",
-    authDomain: "hasmarks-perle.firebaseapp.com",
-    projectId: "hasmarks-perle",
-    storageBucket: "hasmarks-perle.appspot.com",
-    messagingSenderId: "907160469943",
-    appId: "1:907160469943:web:088cc034931815fa2aa832"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
-export default app
+export default app;
