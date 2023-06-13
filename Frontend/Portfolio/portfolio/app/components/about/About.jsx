@@ -30,8 +30,8 @@ const About = () => {
           x: 300,
         }}
         transition={{
-          duration: 0.6,
-          delay: 0.3,
+          duration: 0.9,
+          delay: 0.2,
           //ease: "easeIn",
         }}
         whileInView={{
